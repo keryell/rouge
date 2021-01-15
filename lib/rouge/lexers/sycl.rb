@@ -10,6 +10,18 @@ module Rouge
       desc "The standard SYCL C++ for heterogeneous computing from Khronos Group"
 
       tag 'sycl'
+
+      def self.builtins
+        @builtins ||= Set.new %w(
+          buffer
+        )
+      end
+
+      def self.reserved
+        @reserved ||= Set.new %w(
+          queue
+        )
+      end
     end
   end
 end
