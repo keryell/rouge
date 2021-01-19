@@ -1,0 +1,8 @@
+#include <sycl/sycl.hpp>
+int main() {
+  sycl::buffer<int, 1> a { 1 };
+  sycl::queue {}.submit([&](sycl::handler& cgh) {
+    sycl::accessor A { a, cgh, sycl::write_only };
+    cgh.single_task([=] { A[0] = 42; });
+  });
+}
