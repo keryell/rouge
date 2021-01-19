@@ -331,7 +331,8 @@ module Rouge
           vec
         ))
 
-      @sycl_variables = Set.new(%w(
+      # Use an array here since it is used in an Array context
+      @sycl_variables = Array.new(%w(
           accelerator_selector_v
           cpu_selector_v
           default_selector_v
@@ -344,7 +345,7 @@ module Rouge
 
       def self.builtins
         # @builtins is an array from the C lexer
-        @builtins ||= super.append(@sycl_variables)
+        @builtins ||= super.concat(@sycl_variables)
       end
 
       def self.keywords
