@@ -11,86 +11,86 @@ module Rouge
 
       tag 'sycl'
 
-      @sycl_data_types = Set.new(%w(
-          char2 char3 char4 char8 char16
-          double2 double3 double4 double8 double16
-          float2 float3 float4 float8 float16
-          half half2 half3 half4 half8 half16
-          int2 int3 int4 int8 int16
-          long2 long3 long4 long8 long16
-          longlong2 longlong3 longlong4 longlong8 longlong16
-          schar2 schar3 schar4 schar8 schar16
-          short2 short3 short4 short8 short16
-          uchar2 uchar3 uchar4 uchar8 uchar16
-          uint2 uint3 uint4 uint8 uint16
-          ulong2 ulong3 ulong4 ulong8 ulong16
-          ulonglong2 ulonglong3 ulonglong4 ulonglong8 ulonglong16
-          ushort2 ushort3 ushort4 ushort8 ushort16
-        ))
+      sycl_data_types = %w(
+        char2 char3 char4 char8 char16
+        double2 double3 double4 double8 double16
+        float2 float3 float4 float8 float16
+        half half2 half3 half4 half8 half16
+        int2 int3 int4 int8 int16
+        long2 long3 long4 long8 long16
+        longlong2 longlong3 longlong4 longlong8 longlong16
+        schar2 schar3 schar4 schar8 schar16
+        short2 short3 short4 short8 short16
+        uchar2 uchar3 uchar4 uchar8 uchar16
+        uint2 uint3 uint4 uint8 uint16
+        ulong2 ulong3 ulong4 ulong8 ulong16
+        ulonglong2 ulonglong3 ulonglong4 ulonglong8 ulonglong16
+        ushort2 ushort3 ushort4 ushort8 ushort16
+      )
 
-      @sycl_functions = Set.new(%w(
-          aligned_alloc
-          aligned_alloc_device
-          aligned_alloc_host
-          aligned_alloc_shared
-          all_of
-          any_of
-          backend_traits
-          barrier
-          depends_on
-          exclusive_scan
-          fill
-          free
-          get
-          get_access
-          get_host_access
-          get_native
-          get_native_context
-          get_native_device
-          get_native_mem
-          get_native_queue
-          get_pointer_device
-          get_pointer_type
-          group_all_of
-          group_any_of
-          group_barrier
-          group_broadcast
-          group_exclusive_scan
-          group_inclusive_scan
-          group_none_of
-          group_reduce
-          host_task
-          inclusive_scan
-          make_buffer
-          make_context
-          make_device
-          make_event
-          make_image_sampler
-          make_kernel
-          make_module
-          make_platform
-          make_queue
-          make_sampled_image
-          make_sampler
-          make_stream
-          make_unsampled_image
-          malloc
-          malloc_device
-          malloc_host
-          malloc_shared
-          mem_advise
-          memcpy
-          memset
-          none_of
-          parallel_for
-          parallel_for_work_group
-          parallel_for_work_item
-          param_traits
-          prefetch
-          reduce
-          single_task
-          submit
-        ))
+      sycl_functions = %w(
+        aligned_alloc
+        aligned_alloc_device
+        aligned_alloc_host
+        aligned_alloc_shared
+        all_of
+        any_of
+        backend_traits
+        barrier
+        depends_on
+        exclusive_scan
+        fill
+        free
+        get
+        get_access
+        get_host_access
+        get_native
+        get_native_context
+        get_native_device
+        get_native_mem
+        get_native_queue
+        get_pointer_device
+        get_pointer_type
+        group_all_of
+        group_any_of
+        group_barrier
+        group_broadcast
+        group_exclusive_scan
+        group_inclusive_scan
+        group_none_of
+        group_reduce
+        host_task
+        inclusive_scan
+        make_buffer
+        make_context
+        make_device
+        make_event
+        make_image_sampler
+        make_kernel
+        make_module
+        make_platform
+        make_queue
+        make_sampled_image
+        make_sampler
+        make_stream
+        make_unsampled_image
+        malloc
+        malloc_device
+        malloc_host
+        malloc_shared
+        mem_advise
+        memcpy
+        memset
+        none_of
+        parallel_for
+        parallel_for_work_group
+        parallel_for_work_item
+        param_traits
+        prefetch
+        reduce
+        single_task
+        submit
+      )
 
       # Generic types used in SYCL pseudo code descriptions like Gen,
       # SGen, GenVec...
@@ -155,13 +155,13 @@ module Rouge
           ushortn
         ))
 
-      @sycl_macros = Set.new(%w(
-          SYCL_EXTERNAL
-        ))
+      sycl_macros = %w(
+        SYCL_EXTERNAL
+      )
 
-      @sycl_namespaces = Set.new(%w(
-          sycl
-        ))
+      sycl_namespaces = %w(
+        sycl
+      )
 
       # Types, namespace and attributes used by the SYCL OpenCL backend
       @sycl_opencl_keywords = Set.new(%w(
@@ -250,116 +250,121 @@ module Rouge
           event_t
         ))
 
-      @sycl_types = Set.new(%w(
-          accelerator_selector
-          access
-          access_mode
-          accessor
-          async_exception
-          atomic_ref
-          bit_and
-          bit_or
-          bit_xor
-          buffer
-          buffer_allocator
-          constant_ptr
-          context
-          cpu_selector
-          decorated_constant_ptr
-          decorated_global_ptr
-          decorated_local_ptr
-          decorated_private_ptr
-          default_selector
-          device
-          device_event
-          event
-          exception
-          exception_list
-          executable
-          generic_ptr
-          global_ptr
-          gpu_selector
-          group
-          h_item
-          handler
-          host_accessor
-          host_selector
-          id
-          image_allocator
-          image_sampler
-          input
-          interop_handle
-          item
-          kernel
-          local_ptr
-          logical_and
-          logical_or
-          marray
-          maximum
-          minimum
-          mode
-          module
-          module_state
-          multi_ptr
-          multiplies
-          nd_item
-          nd_range
-          object
-          platform
-          plus
-          private_memory
-          private_ptr
-          property
-          property_list
-          queue
-          range
-          raw_constant_ptr
-          raw_generic_ptr
-          raw_global_ptr
-          raw_local_ptr
-          raw_private_ptr
-          reducer
-          reduction
-          sampled_image
-          specialization_id
-          stream
-          sub_group
-          target
-          this_module
-          unsampled_image
-          usm_allocator
-          vec
-        ))
+      sycl_types = %w(
+        accelerator_selector
+        access
+        access_mode
+        accessor
+        async_exception
+        atomic_ref
+        bit_and
+        bit_or
+        bit_xor
+        buffer
+        buffer_allocator
+        constant_ptr
+        context
+        cpu_selector
+        decorated_constant_ptr
+        decorated_global_ptr
+        decorated_local_ptr
+        decorated_private_ptr
+        default_selector
+        device
+        device_event
+        event
+        exception
+        exception_list
+        executable
+        generic_ptr
+        global_ptr
+        gpu_selector
+        group
+        h_item
+        handler
+        host_accessor
+        host_selector
+        id
+        image_allocator
+        image_sampler
+        input
+        interop_handle
+        item
+        kernel
+        local_ptr
+        logical_and
+        logical_or
+        marray
+        maximum
+        minimum
+        mode
+        module
+        module_state
+        multi_ptr
+        multiplies
+        nd_item
+        nd_range
+        object
+        platform
+        plus
+        private_memory
+        private_ptr
+        property
+        property_list
+        queue
+        range
+        raw_constant_ptr
+        raw_generic_ptr
+        raw_global_ptr
+        raw_local_ptr
+        raw_private_ptr
+        reducer
+        reduction
+        sampled_image
+        specialization_id
+        stream
+        sub_group
+        target
+        this_module
+        unsampled_image
+        usm_allocator
+        vec
+      )
 
-      # Use an array here since it is used in an Array context
-      @sycl_variables = Array.new(%w(
-          accelerator_selector_v
-          cpu_selector_v
-          default_selector_v
-          gpu_selector_v
-          host_selector_v
-        ))
+      # SYCL pre-defined variables and tags
+      sycl_variables = %w(
+        accelerator_selector_v
+        cpu_selector_v
+        default_selector_v
+        gpu_selector_v
+        host_selector_v
+        read_only
+        write_only
+      )
 
       # For now just recycle some token classes from the C++ highlighter and
       # reinject the SYCL symbols in these classes
-
-      def self.builtins
-        # @builtins is an array from the C lexer
-        @builtins ||= super.concat(@sycl_variables)
-      end
-
-      def self.keywords
-        @keywords ||= super + @sycl_types
-      end
-
       def self.keywords_type
-        @keywords_type ||= super + @sycl_data_types + @sycl_generic_types \
-                           + @sycl_opencl_keywords
+        @keywords_type ||= super + @sycl_generic_types + @sycl_opencl_keywords
       end
 
-      def self.reserved
-        @reserved ||= super + @sycl_functions + @sycl_namespaces
+      # Insert some specific rules at the beginning of the statement
+      # rule of the C++ lexer
+      prepend :statements do
+        rule %r/(?:#{sycl_data_types.join('|')})\b/,
+             Name::Attribute
+        rule %r/(?:#{sycl_functions.join('|')})\b/,
+             Literal::String::Regex
+        rule %r/(?:#{sycl_macros.join('|')})\b/,
+             Comment::Preproc
+        rule %r/(?:#{sycl_namespaces.join('|')})\b/,
+             Literal::String::Symbol
+        rule %r/(?:#{sycl_types.join('|')})\b/,
+             Name::Entity
+        rule %r/(?:#{sycl_variables.join('|')})\b/,
+             Name::Builtin
       end
+
     end
   end
 end
