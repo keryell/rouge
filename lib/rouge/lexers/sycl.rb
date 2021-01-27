@@ -35,22 +35,31 @@ module Rouge
         aligned_alloc_shared
         all_of
         any_of
-        backend_traits
+        aspect_selector
         barrier
+        create_sub_devices
         depends_on
         exclusive_scan
         fill
         free
         get
         get_access
+        get_backend
+        get_backend_info
+        get_context
+        get_devices
         get_host_access
+        get_info
         get_native
         get_native_context
         get_native_device
         get_native_mem
         get_native_queue
+        get_platform
+        get_platforms
         get_pointer_device
         get_pointer_type
+        get_property
         group_all_of
         group_any_of
         group_barrier
@@ -59,15 +68,21 @@ module Rouge
         group_inclusive_scan
         group_none_of
         group_reduce
+        has
+        has_extension
+        has_property
         host_task
         inclusive_scan
+        is_cpu
+        is_gpu
+        is_accelerator
         make_buffer
         make_context
         make_device
         make_event
         make_image_sampler
         make_kernel
-        make_module
+        make_kernel_bundle
         make_platform
         make_queue
         make_sampled_image
@@ -160,6 +175,7 @@ module Rouge
       )
 
       sycl_namespaces = %w(
+        info
         sycl
       )
 
@@ -255,8 +271,16 @@ module Rouge
         access
         access_mode
         accessor
+        all_devices_have
+        any_device_has
+        aspect
         async_exception
+        async_handler
         atomic_ref
+        backend
+        backend_input_t
+        backend_return_t
+        backend_traits
         bit_and
         bit_or
         bit_xor
@@ -264,6 +288,7 @@ module Rouge
         buffer_allocator
         constant_ptr
         context
+        context_bound
         cpu_selector
         decorated_constant_ptr
         decorated_global_ptr
@@ -289,17 +314,20 @@ module Rouge
         image_sampler
         input
         interop_handle
+        is_property
+        is_property_of
         item
         kernel
+        kernel_bundle
         local_ptr
         logical_and
         logical_or
         marray
         maximum
+        memory_order
+        memory_scope
         minimum
         mode
-        module
-        module_state
         multi_ptr
         multiplies
         nd_item
@@ -325,8 +353,8 @@ module Rouge
         stream
         sub_group
         target
-        this_module
         unsampled_image
+        use_host_ptr
         usm_allocator
         vec
       )
@@ -334,10 +362,24 @@ module Rouge
       # SYCL pre-defined variables and tags
       sycl_variables = %w(
         accelerator_selector_v
+        all_devices_have_v
+        any_device_has_v
         cpu_selector_v
         default_selector_v
         gpu_selector_v
         host_selector_v
+        is_property_of_v
+        is_property_v
+        memory_order_acq_rel
+        memory_order_acquire
+        memory_order_relaxed
+        memory_order_release
+        memory_order_seq_cst
+        memory_scope_device
+        memory_scope_sub_group
+        memory_scope_system
+        memory_scope_work_group
+        memory_scope_work_item
         read_only
         write_only
       )
