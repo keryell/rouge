@@ -28,6 +28,7 @@ module Rouge
         ushort2 ushort3 ushort4 ushort8 ushort16
       )
 
+      # Split member functions from free functions?
       sycl_functions = %w(
         aligned_alloc
         aligned_alloc_device
@@ -109,66 +110,66 @@ module Rouge
 
       # Generic types used in SYCL pseudo code descriptions like Gen,
       # SGen, GenVec...
-      @sycl_generic_types = Set.new(%w(
-          charn
-          doublen
-          floatn
-          genchar
-          genfloat
-          genfloatd
-          genfloatf
-          genfloath
-          genfloatptr
-          gengeodouble
-          gengeofloat
-          genhalf
-          genint
-          geninteger
-          geninteger16bit
-          geninteger32bit
-          geninteger64bit
-          geninteger8bit
-          genintegerNbit
-          genintptr
-          genlong
-          genlonglong
-          genshort
-          gentype
-          genvector
-          halfn
-          igenchar
-          igeninteger
-          igeninteger16bit
-          igeninteger32bit
-          igeninteger64bit
-          igeninteger8bit
-          igenintegerNbit
-          igenlonginteger
-          intn
-          longlongn
-          longn
-          scharn
-          sgenfloat
-          sgeninteger
-          shortn
-          ucharn
-          ugenchar
-          ugenint
-          ugeninteger
-          ugeninteger16bit
-          ugeninteger32bit
-          ugeninteger64bit
-          ugeninteger8bit
-          ugenintegerNbit
-          ugenlong
-          ugenlonginteger
-          ugenlonglong
-          ugenshort
-          uintn
-          ulonglongn
-          ulongn
-          ushortn
-        ))
+      sycl_generic_types = %w(
+        charn
+        doublen
+        floatn
+        genchar
+        genfloat
+        genfloatd
+        genfloatf
+        genfloath
+        genfloatptr
+        gengeodouble
+        gengeofloat
+        genhalf
+        genint
+        geninteger
+        geninteger16bit
+        geninteger32bit
+        geninteger64bit
+        geninteger8bit
+        genintegerNbit
+        genintptr
+        genlong
+        genlonglong
+        genshort
+        gentype
+        genvector
+        halfn
+        igenchar
+        igeninteger
+        igeninteger16bit
+        igeninteger32bit
+        igeninteger64bit
+        igeninteger8bit
+        igenintegerNbit
+        igenlonginteger
+        intn
+        longlongn
+        longn
+        scharn
+        sgenfloat
+        sgeninteger
+        shortn
+        ucharn
+        ugenchar
+        ugenint
+        ugeninteger
+        ugeninteger16bit
+        ugeninteger32bit
+        ugeninteger64bit
+        ugeninteger8bit
+        ugenintegerNbit
+        ugenlong
+        ugenlonginteger
+        ugenlonglong
+        ugenshort
+        uintn
+        ulonglongn
+        ulongn
+        ushortn
+      )
 
       sycl_macros = %w(
         SYCL_EXTERNAL
@@ -181,91 +182,91 @@ module Rouge
       )
 
       # Types, namespace and attributes used by the SYCL OpenCL backend
-      @sycl_opencl_keywords = Set.new(%w(
-          __kernel
-          __read_only
-          __read_write
-          __write_only
-          cl
-          cl_bool
-          cl_char
-          cl_char16
-          cl_char2
-          cl_char3
-          cl_char4
-          cl_char8
-          cl_command_queue
-          cl_context
-          cl_device_id
-          cl_double
-          cl_double16
-          cl_double2
-          cl_double3
-          cl_double4
-          cl_double8
-          cl_event
-          cl_exception
-          cl_float
-          cl_float16
-          cl_float2
-          cl_float3
-          cl_float4
-          cl_float8
-          cl_half
-          cl_half16
-          cl_half2
-          cl_half3
-          cl_half4
-          cl_half8
-          cl_int
-          cl_int16
-          cl_int2
-          cl_int3
-          cl_int4
-          cl_int8
-          cl_kernel
-          cl_long
-          cl_long16
-          cl_long2
-          cl_long3
-          cl_long4
-          cl_long8
-          cl_mem
-          cl_pipe
-          cl_platform_id
-          cl_program
-          cl_sampler
-          cl_short
-          cl_short16
-          cl_short2
-          cl_short3
-          cl_short4
-          cl_short8
-          cl_uchar
-          cl_uchar16
-          cl_uchar2
-          cl_uchar3
-          cl_uchar4
-          cl_uchar8
-          cl_uint
-          cl_uint16
-          cl_uint2
-          cl_uint3
-          cl_uint4
-          cl_uint8
-          cl_ulong
-          cl_ulong16
-          cl_ulong2
-          cl_ulong4
-          cl_ulong8
-          cl_ushort
-          cl_ushort16
-          cl_ushort2
-          cl_ushort3
-          cl_ushort4
-          cl_ushort8
-          event_t
-        ))
+      sycl_opencl_keywords = %w(
+        __kernel
+        __read_only
+        __read_write
+        __write_only
+        cl
+        cl_bool
+        cl_char
+        cl_char16
+        cl_char2
+        cl_char3
+        cl_char4
+        cl_char8
+        cl_command_queue
+        cl_context
+        cl_device_id
+        cl_double
+        cl_double16
+        cl_double2
+        cl_double3
+        cl_double4
+        cl_double8
+        cl_event
+        cl_exception
+        cl_float
+        cl_float16
+        cl_float2
+        cl_float3
+        cl_float4
+        cl_float8
+        cl_half
+        cl_half16
+        cl_half2
+        cl_half3
+        cl_half4
+        cl_half8
+        cl_int
+        cl_int16
+        cl_int2
+        cl_int3
+        cl_int4
+        cl_int8
+        cl_kernel
+        cl_long
+        cl_long16
+        cl_long2
+        cl_long3
+        cl_long4
+        cl_long8
+        cl_mem
+        cl_pipe
+        cl_platform_id
+        cl_program
+        cl_sampler
+        cl_short
+        cl_short16
+        cl_short2
+        cl_short3
+        cl_short4
+        cl_short8
+        cl_uchar
+        cl_uchar16
+        cl_uchar2
+        cl_uchar3
+        cl_uchar4
+        cl_uchar8
+        cl_uint
+        cl_uint16
+        cl_uint2
+        cl_uint3
+        cl_uint4
+        cl_uint8
+        cl_ulong
+        cl_ulong16
+        cl_ulong2
+        cl_ulong4
+        cl_ulong8
+        cl_ushort
+        cl_ushort16
+        cl_ushort2
+        cl_ushort3
+        cl_ushort4
+        cl_ushort8
+        event_t
+      )
 
       sycl_types = %w(
         accelerator_selector
@@ -384,27 +385,52 @@ module Rouge
         write_only
       )
 
-      # For now just recycle some token classes from the C++ highlighter and
-      # reinject the SYCL symbols in these classes
-      def self.keywords_type
-        @keywords_type ||= super + @sycl_generic_types + @sycl_opencl_keywords
-      end
+      # Here are some interesting tokens
+      # https://pygments.org/docs/tokens/ unused in C++ we can reuse
+      # in SYCL mode:
+      # Comment::Preproc
+      # Keyword.Pseudo
+      # Keyword.Reserved
+      # Literal::String::Regex
+      # Literal::String::Symbol
+      # Name::Attribute
+      # Name.Builtin.Pseudo
+      # Name.Function.Magic
+      # Name.Other
+      # Name.Variable.Magic
+      # Operator.Word
+      # Generic
+      # Generic.Deleted
+      # Generic.Emph
+      # Generic.Error
+      # Generic.Heading
+      # Generic.Inserted
+      # Generic.Output
+      # Generic.Prompt
+      # Generic.Strong
+      # Generic.Subheading
+      # Generic.Traceback
+
 
       # Insert some specific rules at the beginning of the statement
       # rule of the C++ lexer
       prepend :statements do
         rule %r/(?:#{sycl_data_types.join('|')})\b/,
-             Name::Attribute
+             Keyword::Pseudo
         rule %r/(?:#{sycl_functions.join('|')})\b/,
-             Literal::String::Regex
+             Name::Function::Magic
+        rule %r/(?:#{sycl_generic_types.join('|')})\b/,
+             Name::Builtin::Pseudo
         rule %r/(?:#{sycl_macros.join('|')})\b/,
-             Comment::Preproc
+             Generic::Output
         rule %r/(?:#{sycl_namespaces.join('|')})\b/,
-             Literal::String::Symbol
+             Generic::Heading
+        rule %r/(?:#{sycl_opencl_keywords.join('|')})\b/,
+             Name::Other
         rule %r/(?:#{sycl_types.join('|')})\b/,
-             Name::Entity
+             Keyword::Reserved
         rule %r/(?:#{sycl_variables.join('|')})\b/,
-             Name::Builtin
+             Name::Variable::Magic
       end
 
     end
