@@ -176,6 +176,7 @@ module Rouge
 
       sycl_namespaces = %w(
         info
+        property
         sycl
       )
 
@@ -337,7 +338,6 @@ module Rouge
         plus
         private_memory
         private_ptr
-        property
         property_list
         queue
         range
