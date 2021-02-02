@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2021 The Khronos Group, Inc.
-// SPDX-License-Identifier: Apache-2.0
+/* Copyright (c) 2011-2021 The Khronos Group, Inc.
+    SPDX-License-Identifier: Apache-2.0 */
 
 #include <iostream>
 #include <sycl/sycl.hpp>
@@ -9,9 +9,21 @@ using namespace sycl; // (optional) avoids need for "sycl::" before SYCL names
 constexpr size_t N = 2000;
 constexpr size_t M = 3000;
 
+/// To link with external kernels
+SYCL_EXTERNAL void some_foreign_kernel();
+
+/** For OpenCL backend interoperability */
+cl_command_queue clqueue;
+
+// Specific SYCL datatypes
+ulonglong8 ull;
+
+// Pseudo generic types in the spec
+geninteger16bit gi;
+
 int main() {
   // Create a queue to work on
-  queue myQueue;
+  queue myQueue { accelerator_selector_v };
 
   // Create some 2D buffers of float for our matrices
   buffer<float, 2> a { range<2>{N, M} };
