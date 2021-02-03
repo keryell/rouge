@@ -38,6 +38,8 @@ module Rouge
         any_of
         aspect_selector
         barrier
+        byte_size
+        copy
         create_sub_devices
         depends_on
         exclusive_scan
@@ -45,9 +47,12 @@ module Rouge
         free
         get
         get_access
+        get_allocator
         get_backend
         get_backend_info
         get_context
+        get_count
+        get_device
         get_devices
         get_host_access
         get_info
@@ -60,7 +65,10 @@ module Rouge
         get_platforms
         get_pointer_device
         get_pointer_type
+        get_profiling_info
         get_property
+        get_size
+        get_wait_list
         group_all_of
         group_any_of
         group_barrier
@@ -77,6 +85,8 @@ module Rouge
         is_cpu
         is_gpu
         is_accelerator
+        is_in_order
+        is_sub_buffer
         make_buffer
         make_context
         make_device
@@ -104,8 +114,15 @@ module Rouge
         param_traits
         prefetch
         reduce
+        reinterpret
+        set_final_data
+        set_write_back
         single_task
         submit
+        throw_asynchronous
+        update_host
+        wait
+        wait_and_throw
       )
 
       # Generic types used in SYCL pseudo code descriptions like Gen,
@@ -177,6 +194,8 @@ module Rouge
 
       sycl_namespaces = %w(
         info
+        event_profiling
+        kernel_device_specific
         property
         sycl
       )
@@ -299,7 +318,9 @@ module Rouge
         default_selector
         device
         device_event
+        device_type
         event
+        event_command_status
         exception
         exception_list
         executable
@@ -321,6 +342,7 @@ module Rouge
         item
         kernel
         kernel_bundle
+        local_mem_type
         local_ptr
         logical_and
         logical_or
@@ -335,6 +357,8 @@ module Rouge
         nd_item
         nd_range
         object
+        partition_affinity_domain
+        partition_property
         platform
         plus
         private_memory
@@ -356,6 +380,7 @@ module Rouge
         target
         unsampled_image
         use_host_ptr
+        use_mutex
         usm_allocator
         vec
       )
@@ -381,6 +406,7 @@ module Rouge
         memory_scope_system
         memory_scope_work_group
         memory_scope_work_item
+        no_init
         read_only
         write_only
       )
