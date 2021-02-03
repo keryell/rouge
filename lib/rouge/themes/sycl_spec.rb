@@ -7,6 +7,10 @@ module Rouge
   module Themes
     class SYCLspec < Github
       name 'sycl.spec'
+
+      # Use mostly :bold versions to be clearer and because :italic
+      # does not work witgh asciidoctor-pdf
+
       # sycl_data_types DarkOrchid3 #9a32cd
       style Keyword::Pseudo,                  :fg => '#9a32cd', :italic => true
       # sycl_functions #00c5cd Turquoise 3
@@ -20,10 +24,10 @@ module Rouge
       # sycl_opencl_keywords
       style Name::Other,                      :fg => '#ff4500', :italic => true
       # sycl_types VioletRed1 #ff3e96
-      style Keyword::Reserved,                :fg => '#ff3e96', :italic => true
+      style Keyword::Reserved,                :fg => '#ff3e96', :bold => true
       # sycl_variables orange1 #ffa500
-      style Name::Variable::Magic,            :fg => '#ffa500', :italic => true
-      # Fix the gray comment which is not visible as YellowGreen #9acd32
+      style Name::Variable::Magic,            :fg => '#ffa500', :bold => true
+      # Fix the gray comment which is not as visible as YellowGreen #9acd32
       style Comment,                          :fg => '#9acd32'
       style Comment::Multiline,               :fg => '#9acd32'
       style Comment::Single,                  :fg => '#9acd32'
