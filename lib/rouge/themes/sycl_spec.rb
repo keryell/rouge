@@ -21,10 +21,13 @@ module Rouge
       style Keyword::Reserved,                :fg => '#ff3e96', :italic => true
       # sycl_variables orange1 #ffa500
       style Name::Variable::Magic,            :fg => '#ffa500', :italic => true
-      # Fix the grey comment which is not visible as YellowGreen #9acd32
+      # Fix the gray comment which is not visible as YellowGreen #9acd32
       style Comment,                          :fg => '#9acd32'
       style Comment::Multiline,               :fg => '#9acd32'
       style Comment::Single,                  :fg => '#9acd32'
+      # Use a clearer white background
+      style Text,                             :bg => '#ffffff'
+
     end
   end
 end
